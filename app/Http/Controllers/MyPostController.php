@@ -46,7 +46,7 @@ class MyPostController extends Controller
                 'is_published' => $item['is_published'],
             ]);
         }
-
+        dd('created');
 //        Post::create([
 ////            'title' => 'another title of post from phpstorm',
 ////            'content' => 'another some interesting content',
@@ -54,7 +54,14 @@ class MyPostController extends Controller
 ////            'likes' => 50,
 ////            'is_published' => 1,
 //        ]);
+    }
 
-        dd('created');
+    public function update(){
+        $post = Post::find(6);
+        $post->update([
+            'title' => '1111 updated',
+            'content' => '1111 updated',
+        ]);
+        dd('updated');
     }
 }
