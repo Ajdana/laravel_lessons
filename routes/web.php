@@ -18,4 +18,6 @@ Route::get('/', function () {
     return 'aaaaaaaaaaaa;';
 });
 
-Route::get('/posts', [MyPostController::class, 'index']);
+Route::get('/my_page', function () {
+    return 'this is my page';
+});
