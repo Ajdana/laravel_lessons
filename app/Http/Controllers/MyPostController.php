@@ -8,8 +8,7 @@ use Illuminate\Http\Request;
 class MyPostController extends Controller
 {
     public function index() {
-        $posts = Post::all();
-        dump($posts);
-        echo 'aaaaa';
+        $post = Post::find(1);
+        dump($post->likes);
     }
 }
