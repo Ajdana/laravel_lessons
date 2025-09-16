@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', [MyPostController::class, 'index']);
+Route::get('/posts/create', [MyPostController::class, 'create']);
