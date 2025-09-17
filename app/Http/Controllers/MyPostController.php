@@ -70,4 +70,52 @@ class MyPostController extends Controller
         $post->restore();
         dd('deleted');
     }
+
+    // firstOrCreate
+    // updateOrCreate
+
+    public function firstOrCreate(){
+        $post = Post::find(1);
+        $anotherPost = [
+            'title' => 'some post',
+            'content' => 'some content',
+            'image' => 'some imageblabla.jpg',
+            'likes' => 50,
+            'is_published' => 1,
+        ];
+        $post = Post::firstOrCreate([
+            'title' => 'some title phpstorm',
+        ],[
+            'title' => 'some title phpstorm',
+            'content' => 'some content',
+            'image' => 'some imageblabla.jpg',
+            'likes' => 50,
+            'is_published' => 1,
+        ]);
+        dump($post->content);
+        dd('finished');
+    }
+
+    public function updateOrCreate(){
+        $anotherPost = [
+            'title' => 'updateorcreate some post',
+            'content' => 'updateorcreate some content',
+            'image' => 'updateorcreate some imageblabla.jpg',
+            'likes' => 500,
+            'is_published' => 0,
+        ];
+
+        $post = Post::updateOrCreate([
+            'title' => 'some title not phpstorm',
+
+        ],[
+            'title' => 'some title not phpstorm',
+            'content' => 'its not update some content',
+            'image' => 'its not update some imageblabla.jpg',
+            'likes' => 500,
+            'is_published' => 0,
+        ]);
+        dump($post->title);
+        dd(22222);
+    }
 }
