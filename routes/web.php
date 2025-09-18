@@ -18,9 +18,14 @@ Route::get('/', function () {
     return 'aaaaaaaaaaaa;';
 });
 
-Route::get('/posts', [MyPostController::class, 'index']);
+Route::get('/posts', [MyPostController::class, 'index'])->name('post.index');
 Route::get('/posts/create', [MyPostController::class, 'create']);
 Route::get('/posts/update', [MyPostController::class, 'update']);
 Route::get('/posts/delete', [MyPostController::class, 'delete']);
 Route::get('/posts/first_or_create', [MyPostController::class, 'firstOrCreate']);
 Route::get('/posts/update_or_create', [MyPostController::class, 'updateOrCreate']);
+
+Route::get('/main', [\App\Http\Controllers\MainController::class, 'index'])->name('main.index');
+Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');
+Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about.index');
+
