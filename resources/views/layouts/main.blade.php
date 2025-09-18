@@ -9,13 +9,23 @@
 <body>
 <div class="container">
     <div class="row">
-        <nav>
-            <ul>
-                <li><a href="{{route('main.index')}}">Main</a></li>
-                <li><a href="{{route('post.index')}}">Posts</a></li>
-                <li><a href="{{route('about.index')}}">About</a></li>
-                <li><a href="{{route('contacts.index')}}">Contacts</a></li>
-            </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="{{route('main.index')}}">Main <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('post.index')}}">Posts</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('about.index')}}">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('contacts.index')}}">Contacts</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
     </div>
     @yield('content')
