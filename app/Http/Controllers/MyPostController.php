@@ -13,9 +13,8 @@ class MyPostController extends Controller
 //            dump($post->title);
 //        }
 //        dd('end');
-        $post = Post::where('is_published', 1)->first();
-        dump($post->title);
-        dd('end');
+        $posts = Post::all();
+        return view('posts', compact('posts'));
     }
 
     public function create()
