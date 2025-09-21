@@ -9,21 +9,20 @@ use Illuminate\Http\Request;
 
 class MyPostController extends Controller
 {
-    public function index() {
-//        $posts = Post::all();
+    public function index()
+    {
+        $posts = Post::all();
 //        foreach ($posts as $post) {
 //            dump($post->title);
 //        }
 //        dd('end');
-        $post = Post::find(1);
-        $tag = Tag::find(1);
-        dd($tag->posts);
-//        return view('post.index', compact('posts'));
+        return view('post.index', compact('posts'));
     }
 
     public function create()
     {
-        return view('post.create');
+        $categories = Category::all();
+        return view('post.create',compact('categories'));
     }
 
     public function store()
@@ -32,6 +31,7 @@ class MyPostController extends Controller
             'title' => 'string',
             'content' => 'string',
             'image' => 'string',
+            'category_id' => '',
         ]);
         Post::create([$data]);
         return redirect()->route('post.index');
@@ -42,28 +42,35 @@ class MyPostController extends Controller
         return view('post.show', compact('post'));
     }
 
-    public function edit(Post $post){
-        return view('post.edit', compact('post'));
+    public function edit(Post $post)
+    {
+        $categories = Category::all();
+        return view('post.edit', compact('post', 'categories'));
     }
 
 
-    public function update(Post $post){
+    public function update(Post $post)
+    {
         $data = request()->validate([
             'title' => 'string',
             'content' => 'string',
             'image' => 'string',
+            'category_id' => '',
+
         ]);
         $post->update($data);
         return redirect()->route('post.show', $post->id);
     }
 
-    public function delete(){
+    public function delete()
+    {
         $post = Post::withTrashed()->find(2);
         $post->restore();
         dd('deleted');
     }
 
-    public function destroy(Post $post){
+    public function destroy(Post $post)
+    {
         $post->delete();
         return redirect()->route('post.index');
     }
@@ -71,7 +78,8 @@ class MyPostController extends Controller
     // firstOrCreate
     // updateOrCreate
 
-    public function firstOrCreate(){
+    public function firstOrCreate()
+    {
         $post = Post::find(1);
         $anotherPost = [
             'title' => 'some post',
@@ -82,7 +90,7 @@ class MyPostController extends Controller
         ];
         $post = Post::firstOrCreate([
             'title' => 'some title phpstorm',
-        ],[
+        ], [
             'title' => 'some title phpstorm',
             'content' => 'some content',
             'image' => 'some imageblabla.jpg',
@@ -93,7 +101,8 @@ class MyPostController extends Controller
         dd('finished');
     }
 
-    public function updateOrCreate(){
+    public function updateOrCreate()
+    {
         $anotherPost = [
             'title' => 'updateorcreate some post',
             'content' => 'updateorcreate some content',
@@ -105,7 +114,7 @@ class MyPostController extends Controller
         $post = Post::updateOrCreate([
             'title' => 'some title not phpstorm',
 
-        ],[
+        ], [
             'title' => 'some title not phpstorm',
             'content' => 'its not update some content',
             'image' => 'its not update some imageblabla.jpg',
