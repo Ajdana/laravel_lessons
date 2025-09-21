@@ -23,12 +23,15 @@
                     @endforeach
                 </select>
             </div>
-{{--            <select class="form-select" multiple aria-label="multiple select example">--}}
-{{--                <option selected>Tags</option>--}}
-{{--                <option value="1">One</option>--}}
-{{--                <option value="2">Two</option>--}}
-{{--                <option value="3">Three</option>--}}
-{{--            </select>--}}
+            <div class="form-group">
+                <label for="tags">Tags</label>
+                <select multiple class="form-control" id="tags" name="tags[]">
+                    @foreach($tags as  $tag)
+                        <option value="{{$tag->id}}">{{$tag->title}}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <br>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>
