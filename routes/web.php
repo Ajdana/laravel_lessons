@@ -19,7 +19,14 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', [MyPostController::class, 'index'])->name('post.index');
-Route::get('/posts/create', [MyPostController::class, 'create']);
+Route::get('/posts/create', [MyPostController::class, 'create'])->name('post.create');
+
+Route::post('/posts', [MyPostController::class, 'store'])->name('post.store');
+Route::get('/posts/{post}', [MyPostController::class, 'show'])->name('post.show');
+Route::get('/posts/{post}/edit', [MyPostController::class, 'edit'])->name('post.edit');
+Route::patch('/posts/{post}', [MyPostController::class, 'update'])->name('post.update');
+Route::delete('/posts/{post}', [MyPostController::class, 'destroy'])->name('post.delete');
+
 Route::get('/posts/update', [MyPostController::class, 'update']);
 Route::get('/posts/delete', [MyPostController::class, 'delete']);
 Route::get('/posts/first_or_create', [MyPostController::class, 'firstOrCreate']);
