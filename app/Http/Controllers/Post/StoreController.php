@@ -8,16 +8,12 @@ use App\Models\Post;
 
 //ctrl + alt + o удаляет ненужные пути
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
     public function __invoke(StoreRequest $request)
     {
         $data = $request->validated();
-        $tags = $data['tags'] ?? [];
-        unset($data['tags']);
-
-        $post = Post::create($data);
-        $post->tags()->attach($tags);
+        $this->service->store($data);
         return redirect()->route('post.index');
     }
 }

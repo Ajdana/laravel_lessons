@@ -9,7 +9,7 @@ use App\Models\Tag;
 
 //ctrl + alt + o удаляет ненужные пути
 
-class CreateController extends Controller
+class CreateController extends BaseController
 {
     public function __invoke()
     {

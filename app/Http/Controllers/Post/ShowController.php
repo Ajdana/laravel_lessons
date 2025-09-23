@@ -7,7 +7,7 @@ use App\Models\Post;
 
 //ctrl + alt + o удаляет ненужные пути
 
-class ShowController extends Controller
+class ShowController extends BaseController
 {
     public function __invoke(Post $post)
     {
