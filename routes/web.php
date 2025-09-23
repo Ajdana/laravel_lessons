@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MyPostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,19 +17,18 @@ Route::get('/', function () {
     return 'aaaaaaaaaaaa;';
 });
 
-Route::get('/posts', [MyPostController::class, 'index'])->name('post.index');
-Route::get('/posts/create', [MyPostController::class, 'create'])->name('post.create');
+Route::get('/posts', '\App\Http\Controllers\Post\IndexController')->name('post.index');
+Route::get('/posts/create', '\App\Http\Controllers\Post\CreateController')->name('post.create');
+Route::post('/posts', '\App\Http\Controllers\Post\StoreController')->name('post.store');
+Route::get('/posts/{post}', '\App\Http\Controllers\Post\ShowController')->name('post.show');
+Route::get('/posts/{post}/edit', '\App\Http\Controllers\Post\EditController')->name('post.edit');
+Route::patch('/posts/{post}', '\App\Http\Controllers\Post\UpdateController')->name('post.update');
+Route::delete('/posts/{post}', '\App\Http\Controllers\Post\DestroyController')->name('post.delete');
 
-Route::post('/posts', [MyPostController::class, 'store'])->name('post.store');
-Route::get('/posts/{post}', [MyPostController::class, 'show'])->name('post.show');
-Route::get('/posts/{post}/edit', [MyPostController::class, 'edit'])->name('post.edit');
-Route::patch('/posts/{post}', [MyPostController::class, 'update'])->name('post.update');
-Route::delete('/posts/{post}', [MyPostController::class, 'destroy'])->name('post.delete');
-
-Route::get('/posts/update', [MyPostController::class, 'update']);
-Route::get('/posts/delete', [MyPostController::class, 'delete']);
-Route::get('/posts/first_or_create', [MyPostController::class, 'firstOrCreate']);
-Route::get('/posts/update_or_create', [MyPostController::class, 'updateOrCreate']);
+Route::get('/posts/update', [\App\Http\Controllers\MyPostController::class, 'update']);
+Route::get('/posts/delete', [\App\Http\Controllers\MyPostController::class, 'delete']);
+Route::get('/posts/first_or_create', [\App\Http\Controllers\MyPostController::class, 'firstOrCreate']);
+Route::get('/posts/update_or_create', [\App\Http\Controllers\MyPostController::class, 'updateOrCreate']);
 
 Route::get('/main', [\App\Http\Controllers\MainController::class, 'index'])->name('main.index');
 Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');

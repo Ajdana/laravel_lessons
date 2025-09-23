@@ -11,14 +11,7 @@ class MyPostController extends Controller
 {
     public function index()
     {
-        $post = Post::find(1);
-        $category = Category::find(1);
-        $tag = Tag::find(1);
-        dd($post->category);
-//        foreach ($posts as $post) {
-//            dump($post->title);
-//        }
-//        dd('end');
+        $posts = Post::all();
         return view('post.index', compact('posts'));
     }
 
