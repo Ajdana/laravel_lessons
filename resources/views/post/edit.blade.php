@@ -8,16 +8,25 @@
                 <label for="title">Title</label>
                 <input type="text" name="title" class="form-control" id="title" placeholder="Title"
                        value="{{$post->title}}">
+                @error('title')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="content">Content</label>
                 <textarea class="form-control" name="content" id="content"
                           placeholder="Content">{{$post->content}}</textarea>
+                @error('title')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="image">Image</label>
                 <input type="text" name="image" class="form-control" id="image" value="{{$post->image}}"
                        placeholder="Image">
+                @error('title')
+                <p class="text-danger">{{$message}}</p>
+                @enderror
             </div>
             <div class="form-group">
                 <label for="category">Category</label>
