@@ -13,7 +13,7 @@ use App\Http\Controllers\Admin\Post\IndexController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
 Route::get('/posts', '\App\Http\Controllers\Post\IndexController')->name('post.index');
@@ -30,9 +30,12 @@ Route::get('/posts/first_or_create', [\App\Http\Controllers\MyPostController::cl
 Route::get('/posts/update_or_create', [\App\Http\Controllers\MyPostController::class, 'updateOrCreate']);
 
 
-Route::prefix('admin')->group(function () {
-    Route::get('/post', IndexController::class)->name('admin.post.index');
-});
+Route::prefix('admin')
+    ->middleware(['auth', 'admin'])
+    ->group(function () {
+        Route::get('/post', IndexController::class)->name('admin.post.index');
+    });
+
 
 
 
