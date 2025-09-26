@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\Post\IndexController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,14 @@ Route::get('/posts/update', [\App\Http\Controllers\MyPostController::class, 'upd
 Route::get('/posts/delete', [\App\Http\Controllers\MyPostController::class, 'delete']);
 Route::get('/posts/first_or_create', [\App\Http\Controllers\MyPostController::class, 'firstOrCreate']);
 Route::get('/posts/update_or_create', [\App\Http\Controllers\MyPostController::class, 'updateOrCreate']);
+
+
+Route::prefix('admin')->group(function () {
+    Route::get('/post', IndexController::class)->name('admin.post.index');
+});
+
+
+
 
 Route::get('/main', [\App\Http\Controllers\MainController::class, 'index'])->name('main.index');
 Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');

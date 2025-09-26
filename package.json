@@ -16,6 +16,8 @@
         "postcss": "^8.1.14"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^7.0.1",
+        "admin-lte": "^4.0.0-rc3",
         "bootstrap": "^5.3.8"
     }
 }
