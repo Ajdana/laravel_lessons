@@ -27,6 +27,7 @@ class StoreRequest extends FormRequest
             'title' => 'string',
             'content' => 'string',
             'image' => 'string',
+            'likes' => '',
             'category_id' => 'integer',
             'tags' => 'array',
             'tags.*' => 'integer',
