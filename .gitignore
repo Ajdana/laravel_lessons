@@ -7,6 +7,8 @@
 /storage/framework/*
 /storage/logs/*
 /bootstrap/cache/*
+/public/plugins
+/public/dist
 .env
 .phpunit.result.cache
 

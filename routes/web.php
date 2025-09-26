@@ -13,10 +13,8 @@ use App\Http\Controllers\Admin\Post\IndexController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
 
-Route::get('/', function () {
-    return 'aaaaaaaaaaaa;';
-});
 
 Route::get('/posts', '\App\Http\Controllers\Post\IndexController')->name('post.index');
 Route::get('/posts/create', '\App\Http\Controllers\Post\CreateController')->name('post.create');
@@ -43,3 +41,7 @@ Route::get('/main', [\App\Http\Controllers\MainController::class, 'index'])->nam
 Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');
 Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about.index');
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
