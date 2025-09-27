@@ -9,7 +9,8 @@ class Service
     public function store($data)
     {
         $tags = $data['tags'] ?? [];
-        unset($data['tags']);
+        $category = $data['category'] ?? [];
+        unset($data['tags'], $data['category']);
         $post = Post::create($data);
         $post->tags()->attach($tags);
         return $post;

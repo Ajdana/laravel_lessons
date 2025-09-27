@@ -30,6 +30,7 @@ class StoreRequest extends FormRequest
             'likes' => '',
             'category_id' => 'integer',
             'tags' => 'array',
+            'tags.*.title' => '',
             'tags.*' => 'integer',
         ];
     }
