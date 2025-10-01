@@ -27,7 +27,7 @@ class UpdateRequest extends FormRequest
             'title' => 'string',
             'content' => 'string',
             'image' => 'string',
-            'category_id' => 'integer',
+            'category' => 'integer',
             'tags' => 'array',
             'tags.*' => 'integer',
         ];

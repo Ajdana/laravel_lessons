@@ -38,3 +38,4 @@ Route::middleware('jwt.auth')->prefix('posts')->group(function () {
     Route::patch('/{post}', App\Http\Controllers\Post\UpdateController::class)->name('post.update');
     Route::delete('/{post}', App\Http\Controllers\Post\DestroyController::class)->name('post.delete');
 });
+

@@ -15,7 +15,7 @@ class StoreController extends BaseController
     {
         $data = $request->validated();
         $post = $this->service->store($data);
-        return new PostResource($post);
+        return $post instanceof Post ? new PostResource($post) : $post;
 //        $arr = [
 //            'title' => $post->title,
 //            'content' => $post->content,

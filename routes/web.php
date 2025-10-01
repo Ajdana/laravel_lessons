@@ -17,13 +17,13 @@ use App\Http\Controllers\Admin\Post\IndexController;
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Route::get('/posts', '\App\Http\Controllers\Post\IndexController')->name('post.index');
-Route::get('/posts/create', '\App\Http\Controllers\Post\CreateController')->name('post.create');
-Route::post('/posts', '\App\Http\Controllers\Post\StoreController')->name('post.store');
-Route::get('/posts/{post}', '\App\Http\Controllers\Post\ShowController')->name('post.show');
-Route::get('/posts/{post}/edit', '\App\Http\Controllers\Post\EditController')->name('post.edit');
-Route::patch('/posts/{post}', '\App\Http\Controllers\Post\UpdateController')->name('post.update');
-Route::delete('/posts/{post}', '\App\Http\Controllers\Post\DestroyController')->name('post.delete');
+//Route::get('/posts', '\App\Http\Controllers\Post\IndexController')->name('post.index');
+//Route::get('/posts/create', '\App\Http\Controllers\Post\CreateController')->name('post.create');
+//Route::post('/posts', '\App\Http\Controllers\Post\StoreController')->name('post.store');
+//Route::get('/posts/{post}', '\App\Http\Controllers\Post\ShowController')->name('post.show');
+//Route::get('/posts/{post}/edit', '\App\Http\Controllers\Post\EditController')->name('post.edit');
+//Route::patch('/posts/{post}', '\App\Http\Controllers\Post\UpdateController')->name('post.update');
+//Route::delete('/posts/{post}', '\App\Http\Controllers\Post\DestroyController')->name('post.delete');
 
 Route::get('/posts/update', [\App\Http\Controllers\MyPostController::class, 'update']);
 Route::get('/posts/delete', [\App\Http\Controllers\MyPostController::class, 'delete']);
@@ -45,7 +45,7 @@ Route::get('/main', [\App\Http\Controllers\MainController::class, 'index'])->nam
 Route::get('/contacts', [\App\Http\Controllers\ContactController::class, 'index'])->name('contacts.index');
 Route::get('/about', [\App\Http\Controllers\AboutController::class, 'index'])->name('about.index');
 
-
-Auth::routes();
+//
+//Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
